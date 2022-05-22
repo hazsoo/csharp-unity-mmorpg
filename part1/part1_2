@@ -1,0 +1,137 @@
+// 코드의 흐름 제어
+
+int hp = 0;
+bool isDead = hp <= 0;
+
+if (isDead)
+{
+    Console.WriteLine("You are dead!");
+}
+else
+{
+    Console.WriteLine("You are alive");
+}
+
+
+int c = 0; // 가위 바위 보 치트키
+
+if (c == 0)
+{
+    Console.WriteLine("가위입니다");
+}
+else if (c == 1)
+{
+    Console.WriteLine("바위입니다");
+}
+else if (c == 2)
+{
+    Console.WriteLine("보입니다");
+}
+else
+{
+    Console.WriteLine("치트키입니다");
+}
+
+switch (c)
+{
+    case 0: // switch문의 case 에는 변수는 올 수 없다
+        Console.WriteLine("가위입니다");
+        break;
+    case 1:
+        Console.WriteLine("바위입니다");
+        break;
+    case 2:
+        Console.WriteLine("보입니다");
+        break;
+    case 3:
+        Console.WriteLine("치트키입니다");
+        break;
+    default:
+        Console.WriteLine("다 실패했습니다");
+        break;
+}
+
+// 삼항 연산자
+
+int number = 25;
+
+bool isPair = (number % 2 == 0 ? true : false);
+
+// 가위 바위 보 게임
+// 0:가위 1:바위 2:보
+
+// 상수화(하드코딩 방지)
+//const int ROCK = 1;
+//const int SCISSORS = 0;
+//const int PAPER = 2;
+
+//Random rand = new Random();
+//int aiChoice = rand.Next(0, 3);
+//int choice = Convert.ToInt32(Console.ReadLine());
+
+//switch (choice)
+//{
+//    case ((int)Choice.Scissors):
+//        Console.WriteLine("당신의 선택은 가위입니다.");
+//        break;
+//    case ((int)Choice.Rock):
+//        Console.WriteLine("당신의 선택은 바위입니다.");
+//        break;
+//    case ((int) Choice.Paper):
+//        Console.WriteLine("당신의 선택은 보입니다.");
+//        break;
+//}
+
+//switch (aiChoice)
+//{
+//    case ((int)Choice.Scissors):
+//        Console.WriteLine("컴퓨터의 선택은 가위입니다.");
+//        break;
+//    case ((int)Choice.Rock):
+//        Console.WriteLine("컴퓨터의 선택은 바위입니다.");
+//        break;
+//    case ((int)Choice.Paper):
+//        Console.WriteLine("컴퓨터의 선택은 보입니다.");
+//        break;
+//}
+
+//// 승리 무승부 패배
+//if (choice == aiChoice)
+//    Console.WriteLine("무승부");
+//else if (choice == (int)Choice.Scissors && aiChoice == (int)Choice.Paper)
+//    Console.WriteLine("승리");
+//else if (choice == (int)Choice.Rock && aiChoice == (int)Choice.Scissors)
+//    Console.WriteLine("승리");
+//else if (choice == (int)Choice.Paper && aiChoice == (int)Choice.Rock)
+//    Console.WriteLine("승리");
+//else
+//    Console.WriteLine("패배");
+
+// 하드코딩 방지
+// 따로 정의해주지 않으면 0부터 순서대로 담김
+//enum Choice
+//{
+//    Rock = 1,
+//    Scissors = 0,
+//    Paper = 2
+//}
+
+
+// while 반복문
+int count = 5;
+
+while (count > 0)
+{
+    Console.WriteLine("Hello World");
+    count--;
+}
+
+// 거울아 거울아
+string answer;
+do // 차이점 : 일단은 들어와서 한 번은 실행
+{
+    Console.WriteLine("강사님은 남자인가요 (y,n) :");
+    answer = Console.ReadLine();
+} while (answer != "y");
+
+Console.WriteLine("정답");
