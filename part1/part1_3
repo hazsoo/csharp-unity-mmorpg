@@ -1,0 +1,56 @@
+// 코드의 흐름 제어
+
+while(true)
+{
+    break;
+}
+
+// 소수를 판별하는 코드
+
+int num = 97;
+bool isPrime = true;
+
+for(int i = 2; i < num; i++)
+{
+    if(num % i == 0)
+    {
+        isPrime = false;
+        break;
+    }
+}
+
+if(isPrime)
+    Console.WriteLine("소수입니다!");
+else
+    Console.WriteLine("소수가 아닙니다!");
+
+
+// 3의 배수 찾기
+for(int i = 1;  i <= 100; i++)
+{
+    if (i % 3 != 0)
+        continue;
+
+    Console.WriteLine($"3으로 나뉘는 숫자 발견 : {i}");
+}
+
+
+// Method Function Procedure 메소드 함수
+namespace Part1space
+{
+    class Part1
+    {
+        static void HelloWorld()
+        {
+            Console.WriteLine("Hello World");
+        }
+
+        static void Main(string[] args)
+        {
+            HelloWorld();
+            // or
+            Part1.HelloWorld();
+        }
+    }
+}
+
