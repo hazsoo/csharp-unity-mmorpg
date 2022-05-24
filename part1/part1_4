@@ -1,0 +1,72 @@
+// 함수
+
+namespace CSharp
+{
+    class Program
+    {
+        // 덧셈 함수
+        static int Add(int a, int b)
+        {
+            int result = a + b;
+            return result;
+        }
+
+        // ref 키워드
+        static void AddOne(ref int number) 
+        {
+            number = number + 1;
+        }
+
+        // ref 키워드와 비교
+        static int AddOne2(int number)
+        {
+            return number + 1;
+        }
+
+        // ref를 사용하는 예
+        static void Swap(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
+        // out 키워드
+        static void Divide(int a, int b, out int result1, out int result2)
+        {
+            result1 = a / b;
+            result2 = a % b;
+        }
+
+        static void Main(string[] args)
+        {
+            // 4, 5 => 9
+            int result = Program.Add(4, 5);
+
+            int a = 0;
+            Program.AddOne(ref a); // 단순히 a의 값 0을 넘기는게 아닌, 변수 a를 넘기는 것
+            Console.WriteLine(a);
+
+            a = Program.AddOne2(a); // ref 쓰는 것보다 훨씬 활용적임
+            Console.WriteLine(a);
+
+
+            int num1 = 1;
+            int num2 = 2;
+            Program.Swap(ref num1, ref num2);
+            Console.WriteLine(num1);
+            Console.WriteLine(num2);
+
+
+            int number1 = 10;
+            int number2 = 3;
+
+            int result1;
+            int result2;
+
+            Divide(number1, number2, out result1, out result2);
+            Console.WriteLine(result1);
+            Console.WriteLine(result2);
+        }
+    }
+}
