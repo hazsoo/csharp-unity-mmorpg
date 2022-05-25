@@ -1,0 +1,47 @@
+// 연습문제
+
+namespace CSharp
+{
+    class Program
+    {
+        // 팩토리얼 메소드 -> 재귀함수
+        static int Factorial(int n)
+        {
+            //for(int i = n - 1; i > 0; i--)
+            //{
+            //    n *= i;
+            //}    
+            //return n;
+            if(n <= 1) // 탈출조건
+                return 1;
+            return n * Factorial(n - 1);
+        }
+
+        static void Main(string[] args)
+        {
+            // 구구단 문제
+            for (int i = 2; i < 10; i++)
+            {
+                for(int j = 1; j < 10; j++)
+                {
+                    //Console.WriteLine(i + " * " + j + " = " + i * j);
+                    //Console.WriteLine($"{i} * {j} = {i * j}");
+                }
+            }
+
+            // 별 찍기
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+
+            // 팩토리얼 메소드 만들기
+            int ret = Factorial(5);
+            Console.WriteLine(ret);
+        }
+    }
+}
