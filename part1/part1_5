@@ -1,0 +1,40 @@
+// 코드의 흐름 제어
+
+namespace CSharp
+{
+    class Program
+    {
+        // 오버로딩 : 함수 이름의 재사용
+        // 매개변수 형식, 매개변수 개수 중 하나라도 달라야함
+        static int Add(int a, int b)
+        {
+            Console.WriteLine("Add int 호출");
+            return a + b;
+        }
+
+        static float Add(float a, float b)
+        {
+            Console.WriteLine("Add float 호출");
+            return a + b;
+        }
+
+        // optional 매개변수
+        // 안 넣어주면 defualt로 0이 들어감
+        static int AddOption(int a, int b, int c = 0)
+        {
+            return a + b + c;
+        }
+
+        static void Main(string[] args)
+        {
+            int ret = Program.Add(2, 3);
+            float ret2 = Program.Add(2.0f, 3.0f);
+
+            Console.WriteLine(ret);
+            Console.WriteLine(ret2);
+
+            AddOption(1, 2);
+            AddOption(1, 2, 3);
+        }
+    }
+}
