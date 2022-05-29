@@ -1,0 +1,67 @@
+// 객체 지향 여행
+
+namespace CSharp
+{
+    // 객체지향 (OOP Object Oriented Programming)
+
+    class Knight
+    {
+        public int hp;
+        public int attack;
+
+        // 새로운 기사 생성
+        public Knight Clone()
+        {
+            Knight knight = new Knight();
+            knight.hp = hp;
+            knight.attack = attack;
+            return knight;
+        }
+
+        public void Move()
+        {
+            Console.WriteLine("Knight Move");
+        }
+
+        public void Attack()
+        {
+            Console.WriteLine("Knight Attack");
+        }
+    }
+
+    struct Mage
+    {
+        public int hp;
+        public int attack;
+    }
+
+    class Program
+    {
+        static void KillMage(Mage mage)
+        {
+            mage.hp = 0;
+        }
+
+        static void KillKnight(Knight knight)
+        {
+            knight.hp = 0;
+        }
+
+        static void Main(string[] args)
+        {
+            Mage mage;
+            mage.hp = 100;
+            mage.attack = 50;
+            KillMage(mage);
+            // 객체와 구조체 차이
+            // main함수 안의 본체 mage가 있으니까 연산을 해도 의미없다
+
+            Knight knight = new Knight();
+            knight.hp = 100;
+            knight.attack = 10;
+
+            Knight knight2 = knight.Clone();
+            knight2.hp = 0;
+        }
+    }
+}
