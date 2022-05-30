@@ -1,0 +1,64 @@
+// 객체 지향 여행
+
+namespace CSharp
+{
+    // 객체지향 (OOP Object Oriented Programming)
+
+    class Knight
+    {
+        public int hp;
+        public int attack;
+
+        // 생성자
+        // new 하자마자 호출됨
+        public Knight()
+        {
+            hp = 100;
+            attack = 10;
+            Console.WriteLine("생성자 호출");
+        }
+
+        // 생성자 여러개 가능
+        // ': this()' => default 생성자를 실행하고 이 생성자 실행
+        public Knight(int hp) : this()
+        {
+            this.hp = hp;
+            Console.WriteLine("int 생성자 호출");
+        }
+
+        public Knight(int hp, int attack)
+        {
+            this.hp = hp;
+            this.attack = attack;
+            Console.WriteLine("int, int 생성자 호출");
+        }
+
+        // 새로운 기사 생성
+        public Knight Clone()
+        {
+            Knight knight = new Knight();
+            knight.hp = hp;
+            knight.attack = attack;
+            return knight;
+        }
+
+        public void Move()
+        {
+            Console.WriteLine("Knight Move");
+        }
+
+        public void Attack()
+        {
+            Console.WriteLine("Knight Attack");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Knight knight = new Knight(50, 5);
+        }
+    }
+}
