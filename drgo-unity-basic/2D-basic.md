@@ -1,5 +1,6 @@
 ### 저절로 움직이기
 
+```C#
 using UnityEngine;
 
 public class Movement2D : MonoBehaviour
@@ -15,10 +16,11 @@ public class Movement2D : MonoBehaviour
         // 그래서 곱해주면 사양이 다른 컴퓨터끼리도 같은 속도로 움직이게 됨
     }
 }
-
+```
 
 ### 방향키로 움직이기
 
+```C#
 using UnityEngine;
 
 public class Movement2D : MonoBehaviour
@@ -47,3 +49,4 @@ public class Movement2D : MonoBehaviour
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
 }
+```
