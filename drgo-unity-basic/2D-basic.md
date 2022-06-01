@@ -53,7 +53,7 @@ public class Movement2D : MonoBehaviour
 
 ### 충돌 구현하기
 
-# 권장하는 사용 방법
+##### 권장하는 사용 방법
 1. 컴포넌트와 동일한 타입의 변수 생성
    ```C#
    private Rigidbody2D rigid2D;
@@ -67,9 +67,9 @@ public class Movement2D : MonoBehaviour
    rigid2D.velocity = new Vector3(x, y, 0) * moveSpeed;
    ```
 
-# Tip. 현재 방법과 같이 클래스 변수를 생성하고,
-# 컴포넌트 정보를 한번만 저장하면 현재 클래스 내부 어디에서든
-# rigid2D 변수를 이용해 Rigidbody2D 컴포넌트 정보를 바꾸거나 얻어올 수 있다
+##### Tip. 현재 방법과 같이 클래스 변수를 생성하고,
+##### 컴포넌트 정보를 한번만 저장하면 현재 클래스 내부 어디에서든
+##### rigid2D 변수를 이용해 Rigidbody2D 컴포넌트 정보를 바꾸거나 얻어올 수 있다
 
 ```C#
 using UnityEngine;
@@ -100,7 +100,7 @@ public class Movement2D : MonoBehaviour
 
 ### 충돌시 이벤트
 
-# CollisionEvent
+##### CollisionEvent
 ```C#
 using UnityEngine;
 
@@ -135,7 +135,7 @@ public class CollisionEvent : MonoBehaviour
 }
 ```
 
-# TriggerEvent
+##### TriggerEvent
 ```C#
 using UnityEngine;
 
