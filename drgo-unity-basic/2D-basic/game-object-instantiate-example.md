@@ -209,3 +209,80 @@ public class ObjectSpawner : MonoBehaviour
 }
 ```
 ![instantiate_example](https://user-images.githubusercontent.com/81146582/171992913-3f41e64c-3406-4af0-beee-012cfa5ec960.gif)
+
+##### 플레이어가 총알을 생성
+```C#
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField]
+    private KeyCode keyCodeFire = KeyCode.Space;
+    [SerializeField]
+    private GameObject bulletPrefab;
+    private float moveSpeed = 3.0f;
+
+    private void Update()
+    {
+        // 플레이어 오브젝트 이동
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        transform.position += new Vector3(x, y, 0) * moveSpeed * Time.deltaTime;
+
+        // 플레이어 오브젝트 총알 발사
+        if(Input.GetKeyDown(keyCodeFire))
+        {
+            GameObject clone = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+            clone.name = "Bullet";
+            clone.transform.localScale = Vector3.one * 0.5f;
+            clone.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+}
+```
+
+##### 플레이어가 움직이는 방향으로 총알 움직이게 하기
+```C#
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField]
+    private KeyCode keyCodeFire = KeyCode.Space;
+    [SerializeField]
+    private GameObject bulletPrefab;
+    private float moveSpeed = 3.0f;
+    private Vector3 lastMoveDirection = Vector3.right;
+
+    private void Update()
+    {
+        // 플레이어 오브젝트 이동
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        transform.position += new Vector3(x, y, 0) * moveSpeed * Time.deltaTime;
+
+        // 마지막에 입력된 방향키의 방향을 총알의 발사 방향으로 활용
+        if(x != 0 || y != 0)
+        {
+            lastMoveDirection = new Vector3 (x, y, 0);
+        }
+
+        // 플레이어 오브젝트 총알 발사
+        if(Input.GetKeyDown(keyCodeFire))
+        {
+            GameObject clone = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+            clone.name = "Bullet";
+            clone.transform.localScale = Vector3.one * 0.5f;
+            clone.GetComponent<SpriteRenderer>().color = Color.red;
+
+            clone.GetComponent<Movement2D>().Setup(lastMoveDirection);
+        }
+    }
+}
+```
+![instantiate_example2](https://user-images.githubusercontent.com/81146582/171993841-af0d96f4-9a67-4d80-a6ae-827f1da1c03e.gif)
+
